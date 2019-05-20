@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.Observable;
+import io.reactivex.Observable;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
         Observable.just(textView.getText().toString())
                 .map(s -> s + "Rx!")
                 .subscribe(text -> textView.setText(text));
+
     }
 }
