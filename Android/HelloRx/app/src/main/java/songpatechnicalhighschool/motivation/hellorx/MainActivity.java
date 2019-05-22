@@ -8,6 +8,7 @@ import android.widget.TextView;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
                 .map(s -> s + "Rx!")
                 .subscribe(text -> textView.setText(text));
 
-//        Observable
-        //               .just(1, 2, 3, 4, 5)
-        //             .filter(new Func1<Integer, Boolean>() {
-        //                  @Override
-        //               public Boolean call(Integer integer) {
-        //                 return integer % 2 != 0;
-        //           }
-        //     });
+        Observable
+                .just(1, 2, 3, 4, 5)
+                .filter(new Func1<Integer, Boolean>() {
+                    @Override
+                    public Boolean call(Integer integer) {
+                        return integer % 2 != 0;
+                    }
+                });
 
         Observer<Integer> observer = new Observer<Integer>() {
             @Override
@@ -52,5 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("All data emitted.");
             }
         };
+        
     }
 }
